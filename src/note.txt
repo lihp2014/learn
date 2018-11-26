@@ -23,3 +23,10 @@ Session            Cookie
   来的两个对象，并非是node的原生对象res,res 
 6. 核心概念： 请求上下文context 请求对象request 响应对象response 中间件
 ++ http 协议 资源 tcp/ip协议 网络通信知识 前后端请求设定 请求流程 
+
+
+Koa1                       VS                   Koa2
+1. 1.0依托于generator function 及co库；2.0依托于async function
+2. 1.0主要是es 5语法；2.0升级为es 6语法
+3. 所以来的三方库可能需要koa-convert来进行转换
+

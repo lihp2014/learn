@@ -7,26 +7,26 @@ var indent = function (n) {
     return new Array(n).join('&nbsp;')
 }
 var mid1 = function () {
-    return function *() {
+    return function *(next) {
         this.body = '<h3>请求 => 第一层中间件</h3>'
         yield next
-        this.body = '<h3>响应 <= 第一层中间件</h3>'
+        this.body += '<h3>响应 <= 第一层中间件</h3>'
     }
 }
 
 var mid2 = function () {
-    return function *() {
-        this.body = '<h3>'+ indent(4) +'请求 => 第二层中间件</h3>'
+    return function *(next) {
+        this.body += '<h3>'+ indent(4) +'请求 => 第二层中间件</h3>'
         yield next
-        this.body = '<h3>'+ indent(4) +'响应 <= 第二层中间件</h3>'
+        this.body += '<h3>'+ indent(4) +'响应 <= 第二层中间件</h3>'
     }
 }
 
 var mid3 = function () {
-    return function *() {
-        this.body = '<h3>'+ indent(8) +'请求 => 第三层中间件</h3>'
+    return function *(next) {
+        this.body += '<h3>'+ indent(8) +'请求 => 第三层中间件</h3>'
         yield next
-        this.body = '<h3>'+ indent(8) +'响应 <= 第三层中间件</h3>'
+        this.body += '<h3>'+ indent(8) +'响应 <= 第三层中间件</h3>'
     }
 }
 
